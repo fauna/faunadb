@@ -82,11 +82,9 @@ object SchemaSet {
       extends SchemaSet(
         scope,
         KeyID.collID,
-        Union(
-          Seq(IndexJoin(Databases(scope), KeyByDatabase(scope)),
-              IndexSet(
-                DocumentsByCollection(scope),
-                Vector(IndexTerm(DocIDV(KeyID.collID.toDocID)))))))
+        IndexSet(
+          DocumentsByCollection(scope),
+          Vector(IndexTerm(DocIDV(KeyID.collID.toDocID)))))
 
   case class Tokens(scope: ScopeID)
       extends SchemaSet(
